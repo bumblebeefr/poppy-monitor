@@ -2,6 +2,8 @@
 
 Web tool to monitor and pilot poppy project robot.
 
+![Trunk Assembled](img/screenshot.png)
+
 It uses Rest API to communicate with the Robot instance. Not compatible, for the moment, with trunk version of pypot, please use the branch 
 [bumblebee/pypot](https://github.com/bumblebeefr/pypot).
 
