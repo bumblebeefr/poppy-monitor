@@ -1,27 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
-<title>Poppy monitor</title>
-
-<link rel="icon" href="img/poppy-monitor.png" type="image/png">
-<link rel="shortcut icon" href="img/poppy-monitor.png" type="image/png"> 
-
-<link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-<link href="lib/bootstrap/css/bootstrap-theme.css" rel="stylesheet">
-<link href="lib/rmodal/animate.min.css" rel="stylesheet">
-<link href="lib/rmodal/rmodal.css" rel="stylesheet">
-<link href="lib/font-awesome/css/font-awesome.css" rel="stylesheet">
-<link href="lib/raphaelicons/raphaelicons.css" rel="stylesheet">
-<link href="lib/notiFire/css/notiFire.css" rel="stylesheet">
-<link href="css/monitor.css" rel="stylesheet">
-
-<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-<!--[if lt IE 9]>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<title>Poppy monitor</title>
+	
+	<link rel="icon" href="img/poppy-monitor.png" type="image/png">
+	<link rel="shortcut icon" href="img/poppy-monitor.png" type="image/png"> 
+	
+	<link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<link href="lib/bootstrap/css/bootstrap-theme.css" rel="stylesheet">
+	<link href="lib/rmodal/animate.min.css" rel="stylesheet">
+	<link href="lib/rmodal/rmodal.css" rel="stylesheet">
+	<link href="lib/font-awesome/css/font-awesome.css" rel="stylesheet">
+	<link href="lib/raphaelicons/raphaelicons.css" rel="stylesheet">
+	<link href="lib/notiFire/css/notiFire.css" rel="stylesheet">
+	<link href="css/monitor.css" rel="stylesheet">
+	
+	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.0.5/es5-shim.min.js"></script>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
@@ -50,150 +50,10 @@
 				</div>
 				<br/>
 				<behavior></behavior>
-				<code>
-					get /motor/list.json<br/>
-					get /motor/&lt;alias&gt;/list.json<br/>
-					get /sensor/list.json<br/>
-					get /motor/alias/list.json<br/>
-					get /motor/&lt;motor_name&gt;/register/list.json<br/>
-					get /sensor/&lt;motor_name&gt;/register/list.json<br/>
-					get /motor/&lt;motor_name&gt;/register/&lt;register_name&gt;<br/>
-					get /sensor/&lt;motor_name&gt;/register/&lt;register_name&gt;<br/>
-					post /motor/&lt;motor_name&gt;/register/&lt;register_name&gt;/value.json<br/>
-					post /sensor/&lt;motor_name&gt;/register/&lt;register_name&gt;/value.json<br/>
-					get /primitive/list.json<br/>
-					get /primitive/running/list.json<br/>
-					get /primitive/&lt;prim&gt;/start.json<br/>
-					get /primitive/&lt;prim&gt;/stop.json<br/>
-					get /primitive/&lt;prim&gt;/pause.json<br/>
-					get /primitive/&lt;prim&gt;/resume.json<br/>
-					get /primitive/&lt;prim&gt;/property/list.json<br/>
-					get /primitive/&lt;prim&gt;/property/&lt;prop&gt;<br/>
-					post /primitive/&lt;prim&gt;/property/&lt;prop&gt;/value.json<br/>
-					get /primitive/&lt;prim&gt;/method/list.json<br/>
-					post /primitive/&lt;prim&gt;/method/&lt;meth&gt;/args.json<br/>
-				</code>
 			</div>
 			<div class="col-md-6">
 				<robot></robot>
 			</div>
-		</div>
-	</div>
-	
-	<div id="modal" class="modal">
-	  <div class="modal-dialog animated">
-	    <div class="modal-content">
-	      <form class="form-horizontal" method="get">
-	        <div class="modal-header"> Modal Headling </div>
-	        <div class="modal-body">
-	          Modal Body
-	        </div>
-	        <div class="modal-footer">
-	          <button class="btn btn-default" type="button" onclick="modal.close();">Close</button>
-	          <button class="btn btn-primary" type="submit" onclick="modal.close();">Cancel</button>
-	        </div>
-	      </form>
-	    </div>
-	  </div>
-	</div>
-	
-	<div id="robotTpl" class="hidden">
-		<ul class="motors poppy_picture">
-			<motor each="{ motors }" motor="{this}" />
-		</ul>
-	</div>	
-	<div id="motorTpl" class="hidden">
-		<li class="motor {hotMotor(motor) ? 'hot' : ''} {ardentMotor(motor) ? 'ardent' : ''}" id="motor_{motor.name}">
-			<div class="name " title="Moteur n°{motor.id}">
-				<i class="fa {motorIcon(motor)} {motorColor(motor)} {fa-spin:isMoving(motor) != 0}" onclick="Poppy.setCompliant({motor.compliant ? 'false' : 'true' },'{motor.name}')" title="{motor.compliant ? 'Moteur inactif, cliquer pour l`activer' : 'Moteur actif, cliquer pour le désactiver'}"></i> 
-				{motor.name} 
-			</div>
-			<!-- <div class="angle" style="transform:rotate({numeral(motor.present_position).format('0.00')}deg)">&nbsp;</div> -->
- 			<div class="angle" onmousewheel="{rotate}" draggable="draggable" onclick="{dodrag}" title="Drag Up/Down or Scroll to rotate">
- 				<position motor="{motor}" />
-			</div>
-			<div class="detail" onclick={test}>
-			 <span class="{motorColor(motor,'no')}"><span class="icon">$</span> {motor.present_temperature}°C</span><br>
-			 <i class="fa fa-compass"></i> {numeral(motor.present_position).format('0.0')}°<br/>
-			
- 			 <div class="more">
-				<div style="border-bottom:dotted 1px #CCC;max-height:3px;margin-bottom:3px;">&nbsp;</div>
-				<small>Course : {numeral(motor.lower_limit).format('0')}° {numeral(motor.upper_limit).format('0')}°</small><br/>
-				<small>Destination : {numeral(motor.goal_position).format('0.0')}°</small><br/>
-				<small>Tension : {numeral(motor.present_voltage).format('0.0')}V</small><br/>
-				<small>Vitesse : {numeral(motor.present_speed).format('0.0')}</small><br/>
-				<small>Couple max : {numeral(motor.torque_limit).format('0')}%</small><br/>
-				<small>Charge : {numeral(motor.present_load).format('0.0')}</small><br/>
-			 </div> 
-			 </div>	
-		</li>
-	</div>
-	<div id="behaviorTpl" class="hidden">
-		<div class="behavior">
-			<primitive each="{primitives}" primitive="{this}"></primitive>
-		</div>
-	</div>
-	<div id="primitiveTpl" class="hidden">
-		<div class="panel { primitive.running ? 'panel-info' : 'panel-default'} primitive">
-  			<div class="panel-heading" onclick={toggle}>
-  				<button type="button" class="btn btn-default btn-xs" onclick="{start}" if={_.includes(primitive.methods,'start')} title="Start {primitive.primitive}">
-					<i class="fa fa-play"></i> 
-				</button>
-  				<button type="button" class="btn btn-default btn-xs" onclick="{stop}" if={_.includes(primitive.methods,'stop')} title="Stop {primitive.primitive}">
-					<i class="fa fa-stop"></i> 
-				</button>
-  				<button type="button" class="btn btn-default btn-xs" onclick="{pause}" if={_.includes(primitive.methods,'pause')} title="Pause {primitive.primitive}">
-					<i class="fa fa-pause"></i> 
-				</button>
-  				<button type="button" class="btn btn-default btn-xs" onclick="{resume}" if={_.includes(primitive.methods,'resume')} title="Resume {primitive.primitive}">
-					<i class="fa fa-eject fa-rotate-90"></i> 
-				</button>
-  				<i class="fa {_open ? 'fa-chevron-up' : 'fa-chevron-down'} pull-right"></i>
-				{primitive.primitive} 
-				<i if={primitive.running} class="fa fa-cog fa-spin"></i>
-			</div>
-			<div if={_open} class="panel-body">
-				<div class="row">
-					<div class="col-md-6">
-						<div each="{methods}" >
-							<button type="button" class="btn btn-default btn-xs" onclick={parent.execute}>
-								<i class="fa fa-play-circle-o"></i> Execute {name}
-							</button>	
-						</div>
-					</div>
-					<div class="col-md-6">
-						<div each="{properties}" >
-							<form onsubmit={parent.updateProp}>
-								<label>{property} : <small>{value}</small></label>
-								 <div class="input-group input-group-sm">
-							      <input type="text" class="form-control" value="{value}" name="value">
-							      <span class="input-group-btn">
-							        <button class="btn btn-default" type="submit" >Update</button>
-							      </span>
-							    </div><!-- /input-group -->
-							</form>
-						</div>
-					</div>
-				</div>
-			</div>
-			
-
-
-		</div>
-		<div id="robotTitleTpl" class="hidden">
-			<h2>
-				<span class="pull-right">
-					<i class="fa {connected ? 'fa-link text-success':'fa-chain-broken text-danger'}" title="{connected ? 'Connected' : 'Disconnected'} - Click to édit url " onclick="{toggle_url}"></i>
-					<span if="{connected}">
-						<i if="{compliant}" class="fa fa-bed" title="All motors are compliant"></i>
-						<span class="temperature {hot:hot} {ardent:ardent}" title="Hottest motor at {maxTemp}°C">
-							<span class="icon">$</span>&thinsp;{maxTemp}<small>°C<sub>Max.</sub></small>
-						</span>
-					</span>
-				</span>
-				<img src="img/poppy-monitor.png" style="height:1em;"/> Monitoring Poppy 
-			</h2>
-			<input id="poppy_url" if="{_url_open}" type="text"  value="{url}" onkeyup="{change_url}" style="width:100%"/>
 		</div>
 	</div>
 
@@ -204,51 +64,17 @@
 	<script src="lib/lodash.js"></script>
 	<script src="lib/numeral/numeral.js"></script>
 	<script src="lib/notiFire/js/notiFire.js"></script>
-	<script src="lib/riot/riot.js"></script>
+	<script src="lib/riot/riot+compiler.js"></script>
 	<script src="lib/hammer.min.js"></script>
-
-
+	<script src="js/helpers.js"></script>
 	<script src="js/poppy-object.js"></script>
-	<script src="js/tag-models.js"></script>
 	
 	
-	<script> window.onload = function() {
-		  var modal = new RModal(document.getElementById('modal'), {
-		      //content: 'Abracadabra'
-		      beforeOpen: function(next) {
-		          console.log('beforeOpen');
-		          next();
-		      },
-		      afterOpen: function() {
-		          console.log('opened');
-		      }, 
-		      beforeClose: function(next) {
-		          console.log('beforeClose');
-		          next();
-		      }, 
-		      afterClose: function() {
-		          console.log('closed');
-		      }
-		      // , bodyClass: 'modal-open'
-		      // , dialogClass: 'modal-dialog modal-dialog-lg'
-		      // , dialogOpenClass: 'animated fadeIn'
-		      // , dialogCloseClass: 'animated fadeOut'
-		      // , focus: ['input.form-control', 'textarea', 'button.btn-primary']
-		  });
-
-		  document.addEventListener('keydown', function(ev) {
-		      if (ev.which == 27) {
-		          modal.close();
-		      }
-		  }, false);
-
-/* 		  document.getElementById('showModal').addEventListener("click", function(ev) {
-		      ev.preventDefault();
-		      modal.open();
-		  }, false); */
-
-		  window.modal = modal;
-		}
-</script>
+	<script src="tags/robot.tag" type="riot/tag"></script>
+	<script src="tags/motor.tag" type="riot/tag"></script>
+	<script src="tags/behavior.tag" type="riot/tag"></script>
+	<script>
+		riot.mount('*');
+	</script>
 </body>
 </html>
