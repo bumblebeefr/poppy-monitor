@@ -21,7 +21,6 @@
 			} 
 			sessionStorage.setItem("poppy_url",url);
 			Poppy.url = url;
-			alert(url);
 			return url
 		},
 
