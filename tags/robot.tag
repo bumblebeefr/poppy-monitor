@@ -50,6 +50,7 @@
 		self.hot = false;
 		self.ardent = false;
 		self._url_open = false;
+		Poppy.initUrl() ;
 		self.url = Poppy.url;
 		
 		self.toggle_url = function(){

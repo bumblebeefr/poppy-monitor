@@ -6,6 +6,25 @@
 		// Url of poppy rest api REST api
 		url : sessionStorage.getItem("poppy_url") ? sessionStorage.getItem("poppy_url") : 'http://localhost:8080',
 
+		initUrl : function() {
+			var anchor = window.location.hash;
+			var hostname = location.hostname; 
+			var url ;
+			if (anchor != "") {
+				// return rest url for URLs like : http://localhost/index.html#open=http://localhost:8080
+				url = anchor.split('=')[1];
+			} else if (hostname == "" ) {
+				// for file:// URLs
+				url = sessionStorage.getItem("poppy_url") ? sessionStorage.getItem("poppy_url") : 'http://localhost:8080';
+			} else {
+				url = 'http://' + hostname + ':8080';
+			} 
+			sessionStorage.setItem("poppy_url",url);
+			Poppy.url = url;
+			return url
+		},
+
+
 		/** Load Robot status and Poppy manager * */
 		getRobot : function() {
 			getJSON(Poppy.url + '/robot.json', {
@@ -18,6 +37,7 @@
 				}
 			});
 		},
+
 
 		/**
 		 * Set Poppy.robot and trigger a "poppy.robot.updated" event. Ussually
