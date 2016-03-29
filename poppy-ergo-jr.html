@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Poppy monitor</title>
+
+	<link rel="icon" href="img/poppy-monitor.png" type="image/png">
+	<link rel="shortcut icon" href="img/poppy-monitor.png" type="image/png">
+
+	<link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<link href="lib/bootstrap/css/bootstrap-theme.css" rel="stylesheet">
+	<link href="lib/rmodal/animate.min.css" rel="stylesheet">
+	<link href="lib/rmodal/rmodal.css" rel="stylesheet">
+	<link href="lib/font-awesome/css/font-awesome.css" rel="stylesheet">
+	<link href="lib/raphaelicons/raphaelicons.css" rel="stylesheet">
+	<link href="lib/notiFire/css/notiFire.css" rel="stylesheet">
+	<link href="css/ergo-jr.css" rel="stylesheet">
+
+	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.0.5/es5-shim.min.js"></script>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style>
+
+    </style>
+</head>
+<body>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-6">
+				<robot_title></robot_title>
+				<audio id="alarm" src="./sound/alarm.ogg" loop></audio>
+				<div>
+					<button type="button" class="btn btn-default" onclick="Poppy.setCompliant(false)">
+						<i class="fa fa-bolt"></i> Activer tous les moteurs
+					</button>
+					<button type="button" class="btn btn-default" onclick="Poppy.setCompliant(true)">
+						<i class="fa fa-bed"></i> Désactiver tous les moteurs
+					</button>
+
+					<button type="button" class="btn btn-default" onclick="Poppy.stopAllPrimitives(true)">
+						<i class="fa fa-coffee"></i> Arreter toutes les primitives
+					</button>
+				</div>
+				<br/>
+				<behavior></behavior>
+			</div>
+			<div class="col-md-6">
+				<robot></robot>
+			</div>
+		</div>
+	</div>
+
+	<script src="lib/ajax.js"></script>
+	<script src="lib/rmodal/rmodal.min.js"></script>
+	<script src="lib/hjson.js"></script>
+	<script src="lib/draggabilly.pkgd.js"></script>
+	<script src="lib/lodash.js"></script>
+	<script src="lib/numeral/numeral.js"></script>
+	<script src="lib/notiFire/js/notiFire.js"></script>
+	<script src="lib/riot/riot+compiler.js"></script>
+	<script src="lib/hammer.min.js"></script>
+	<script src="js/helpers.js"></script>
+	<script src="js/poppy-object.js"></script>
+
+
+	<script src="tags/robot.tag" type="riot/tag"></script>
+	<script src="tags/motor.tag" type="riot/tag"></script>
+	<script src="tags/behavior.tag" type="riot/tag"></script>
+	<script>
+		riot.mount('*');
+	</script>
+</body>
+</html>
