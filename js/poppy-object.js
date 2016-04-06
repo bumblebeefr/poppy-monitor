@@ -108,15 +108,23 @@
       if (args == null) {
         args = {};
       }
+
+      var argsToStr;
+      try {
+        argsToStr = JSON.stringify(args);
+      } catch (err) {
+        argsToStr = '';
+      }
+
       postJSON([ Poppy.url, '/primitive/', primitive, '/method/', action, '/args.json' ].join(''), args, {
         success: function(data) {
           notifire({
-            msg: [ primitive, '.', action, '(', args, ') OK' ].join('')
+            msg: [ primitive, '.', action, '(', argsToStr, ') OK' ].join('')
           });
         },
         error: function(data) {
           notifire({
-            msg: [ primitive, '.', action, '(', args, ') Erreur !' ].join(''),
+            msg: [ primitive, '.', action, '(', argsToStr, ') Erreur !' ].join(''),
             types: 'danger',
           });
           console.log('fail', data);
