@@ -10,18 +10,19 @@
 
     initUrl: function() {
       var anchor = window.location.hash;
-      var hostname = location.hostname;
-      var url ;
+      var hostname = window.location.hostname;
+      var url;
+
       if (anchor != '') {
         // return rest url for URLs like: http://localhost/index.html#open=http://localhost:8080
         url = anchor.split('=')[1];
-      } else if (hostname == '' ) {
+      } else if (hostname == '') {
         // for file:// URLs
         url = sessionStorage.getItem('poppy_url') ? sessionStorage.getItem('poppy_url'): 'http://localhost:8080';
       } else {
         url = 'http://' + hostname + ':8080';
       }
-      sessionStorage.setItem('poppy_url',url);
+      sessionStorage.setItem('poppy_url', url);
       Poppy.url = url;
       return url
     },
@@ -82,10 +83,7 @@
      */
     setRegister: function(motor, register, value) {
       postJSON([ Poppy.url, '/motor/', motor, '/register/', register, '/value.json' ].join(''), value, {
-        success: function(data) {
-          // notifire({msg: [motor,'.',register,' =
-          // ',JSON.stringify(value),') OK'].join('')});
-        },
+        success: function(/* data */) {},
         error: function(data) {
           notifire({
             msg: [ motor, '.', register, ' = ', JSON.stringify(value), ' Erreur !' ].join(''),
@@ -212,8 +210,6 @@
 
   };
   riot.observable(Poppy);
-
-  Poppy.getRobot();
 
   global.Poppy = Poppy;
 })(this);
