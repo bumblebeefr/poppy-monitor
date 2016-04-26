@@ -164,8 +164,11 @@ transform:scale(3) rotate(-90deg) translate(-10px,-10px);
 .poppy_picture{
   width:759px;
   height:1000px;
-  background:transparent url(../img/poppy.png) center center no-repeat;
-  background-size:contain;
+  background-color: transparent;
+  background-image: url(../img/humanoid-motorbloc-links.svg), url(../img/poppy-humanoid.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 
 .panel.primitive{
@@ -175,10 +178,9 @@ transform:scale(3) rotate(-90deg) translate(-10px,-10px);
   padding:2px 3px;
 }
 
-#motor_l_elbow_y{top:334px; left:605px;}
-#motor_r_elbow_y{top:334px; left:55px;}
-#motor_r_knee_y{top:704px; left:119px;}
-#motor_head_y{top:19px; left:127px;}li.motor.ardent {
+
+
+li.motor.ardent {
   border: 1px solid #D11919;
   border-radius: 6px;
 
@@ -203,24 +205,35 @@ transform:scale(3) rotate(-90deg) translate(-10px,-10px);
   0% { box-shadow: 0 0 5px #600 ; }
   100% { box-shadow: 0 0 15px #600 ; }
 }
-#motor_head_z{top:31px; left:541px;}
-#motor_r_arm_z{top:260px; left:32px;}
-#motor_r_ankle_y{top:838px; left:123px;}
-#motor_r_shoulder_x{top:185px; left:84px;}
-#motor_r_shoulder_y{top:115px; left:83px;}
-#motor_r_hip_z{top:414px; left:38px;}
-#motor_r_hip_x{top:579px; left:86px;}
-#motor_r_hip_y{top:486px; left:39px;}
-#motor_l_arm_z{top:255px; left:629px;}
-#motor_l_hip_x{top:580px; left:562px;}
-#motor_l_hip_y{top:489px; left:621px;}
-#motor_l_hip_z{top:412px; left:622px;}
-#motor_abs_x{top:382px; left:428px;}
-#motor_abs_y{top:370px; left:233px;}
-#motor_abs_z{top:312px; left:401px;}
-#motor_l_ankle_y{top:849px; left:525px;}
-#motor_bust_y{top:277px; left:259px;}
-#motor_bust_x{top:238px; left:405px;}
-#motor_l_knee_y{top:700px; left:530px;}
-#motor_l_shoulder_x{top:183px; left:575px;}
-#motor_l_shoulder_y{top:110px; left:573px;}
+
+
+#motor_head_y{top:70px; left:220px;}
+#motor_head_z{top:70px; left:430px;}
+
+#motor_l_shoulder_y{top:160px; left:460px;}
+#motor_l_shoulder_x{top:190px; left:585px;}
+#motor_l_arm_z{top:320px; left:580px;}
+#motor_l_elbow_y{top:260px; left:710px;}
+
+#motor_r_shoulder_y{top:145px; left:195px;}
+#motor_r_shoulder_x{top:165px; left:60px;}
+#motor_r_arm_z{top:330px; left:90px;}
+#motor_r_elbow_y{top:270px; left:0px;}
+
+#motor_bust_y{top:290px; left:210px;}
+#motor_bust_x{top:315px; left:445px;}
+#motor_abs_z{top:360px; left:210px;}
+#motor_abs_x{top:390px; left:445px;}
+#motor_abs_y{top:435px; left:210px;}
+
+#motor_r_hip_y{top:520px; left:150px;}
+#motor_r_hip_x{top:590px; left:200px;}
+#motor_r_hip_z{top:440px; left:80px;}
+#motor_r_knee_y{top:680px; left:200px;}
+#motor_r_ankle_y{top:790px; left:160px;}
+
+#motor_l_hip_x{top:565px; left:470px;}
+#motor_l_hip_y{top:485px; left:480px;}
+#motor_l_hip_z{top:440px; left:600px;}
+#motor_l_knee_y{top:670px; left:470px;}
+#motor_l_ankle_y{top:790px; left:470px;}
