@@ -1,226 +1,226 @@
-      body{
-        font-size:9pt;
-      }
-      sub small, small sub,sup small, small sup{
-        font-size:6pt;
-      }
-      ul.motors{
-        margin:0px;
-        padding:0px;
-        position:relative;
+body{
+  font-size:9pt;
+}
+sub small, small sub,sup small, small sup{
+  font-size:6pt;
+}
+ul.motors{
+  margin:0px;
+  padding:0px;
+  position:relative;
 
-        -webkit-touch-callout: none;
-      -webkit-user-select: none;
-      -khtml-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
-      user-select: none;
-      }
-      li.motor{
-        display:inline-block;
-        list-style-type:none;
-        margin:2px;
-        border-radius:5px;
-        padding:0px;
-        position:absolute;
-        width:110px;
-        overflow:hidden;
-        background-color:rgba(255,255,255,0.8);
-        box-shadow:0.5px 0.5px 4px rgba(0,0,0,0.6);
-        border:solid 1px #AAA;
-
-
-      }
-
-      li.motor .name{
-        background-color:rgba(200,200,200,0.8);
-        font-size:1.1em;
-        font-weight:bold;
-        padding:2px 5px;
-        white-space:nowrap
-
-      }
-      li.motor.hot .name{
-        background-color:#FCF8E3;
-      }
-      li.motor.ardent .name{
-        background-color:#F2DEDE;
-      }
-
-      li.motor.ardent {
-        border: 1px solid #D11919;
-        border-radius: 6px;
-
-        -webkit-animation-name: glow;
-        -webkit-animation-timing-function: ease-in;
-        -webkit-animation-iteration-count: infinite;
-        -webkit-animation-direction: alternate;
-       -webkit-animation-duration: 500ms;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+li.motor{
+  display:inline-block;
+  list-style-type:none;
+  margin:2px;
+  border-radius:5px;
+  padding:0px;
+  position:absolute;
+  width:110px;
+  overflow:hidden;
+  background-color:rgba(255,255,255,0.8);
+  box-shadow:0.5px 0.5px 4px rgba(0,0,0,0.6);
+  border:solid 1px #AAA;
 
 
-        -moz-animation-name: glow;
-        -moz-animation-timing-function: ease-in;
-        -moz-animation-iteration-count: infinite;
-        -moz-animation-direction: alternate;
-       -moz-animation-duration: 500ms;
-    }
-    @-webkit-keyframes glow {
-        0% { box-shadow: 0 0 5px #600 ; }
-        100% { box-shadow: 0 0 25px #600 ; }
-    }
-    @-moz-keyframes glow {
-        0% { box-shadow: 0 0 5px #600 ; }
-        100% { box-shadow: 0 0 25px #600 ; }
-    }
+}
 
-      li.motor .detail  {
-        padding:5px 5px 0px 5px;
-      }
+li.motor .name{
+  background-color:rgba(200,200,200,0.8);
+  font-size:1.1em;
+  font-weight:bold;
+  padding:2px 5px;
+  white-space:nowrap
 
-      li.motor .more{
-        max-height:0;
-        transition:max-height 0.2s ease;
-      }
+}
+li.motor.hot .name{
+  background-color:#FCF8E3;
+}
+li.motor.ardent .name{
+  background-color:#F2DEDE;
+}
 
-      li.motor:hover{
-        z-index:100;
-      }
+li.motor.ardent {
+  border: 1px solid #D11919;
+  border-radius: 6px;
 
-      li.motor:hover .more{
-        max-height:150px;
-      }
+  -webkit-animation-name: glow;
+  -webkit-animation-timing-function: ease-in;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-direction: alternate;
+  -webkit-animation-duration: 500ms;
 
-      div.angle{
-        width:32px;
-        height:32px;
-        position:absolute;
-        top:25px;
-        right:5px;
-        background-size:cover;
-         -webkit-transition: transform 0.2s;
-         -moz-transition: transform 0.2s;
-         -ms-transition: transform 0.2s;
-         -o-transition: transform 0.2s;
-         transition: transform 0.2s;
 
-        transform:rotate(-90deg);
-        -moz-transform:rotate(-90deg);
-        -webkit-transform:rotate(-90deg);
-      }
+  -moz-animation-name: glow;
+  -moz-animation-timing-function: ease-in;
+  -moz-animation-iteration-count: infinite;
+  -moz-animation-direction: alternate;
+  -moz-animation-duration: 500ms;
+}
+@-webkit-keyframes glow {
+  0% { box-shadow: 0 0 5px #600 ; }
+  100% { box-shadow: 0 0 25px #600 ; }
+}
+@-moz-keyframes glow {
+  0% { box-shadow: 0 0 5px #600 ; }
+  100% { box-shadow: 0 0 25px #600 ; }
+}
+
+li.motor .detail  {
+  padding:5px 5px 0px 5px;
+}
+
+li.motor .more{
+  max-height:0;
+  transition:max-height 0.2s ease;
+}
+
+li.motor:hover{
+  z-index:100;
+}
+
+li.motor:hover .more{
+  max-height:150px;
+}
+
+div.angle{
+  width:32px;
+  height:32px;
+  position:absolute;
+  top:25px;
+  right:5px;
+  background-size:cover;
+  -webkit-transition: transform 0.2s;
+  -moz-transition: transform 0.2s;
+  -ms-transition: transform 0.2s;
+  -o-transition: transform 0.2s;
+  transition: transform 0.2s;
+
+  transform:rotate(-90deg);
+  -moz-transform:rotate(-90deg);
+  -webkit-transform:rotate(-90deg);
+}
 
 /*      div.angle:hover{
-        transform:scale(3) rotate(-90deg) translate(-10px,-10px);
-         -moz-transform:scale(3) rotate(-90deg) translate(-10px,-10px);
-        -webkit-transform:scale(3) rotate(-90deg) translate(-10px,-10px);
-      } */
+transform:scale(3) rotate(-90deg) translate(-10px,-10px);
+-moz-transform:scale(3) rotate(-90deg) translate(-10px,-10px);
+-webkit-transform:scale(3) rotate(-90deg) translate(-10px,-10px);
+} */
 
-      .temperature{
-        color: #3C763D;
-      }
-      .temperature.hot{
-        color: #8A6D3B;
-      }
-      .temperature.ardent{
-        color: #A94442;
-      }
-      .blink {
-        -webkit-animation-name: blinker;
-        -webkit-animation-duration: 0.5s;
-        -webkit-animation-timing-function: linear;
-        -webkit-animation-iteration-count: infinite;
+.temperature{
+  color: #3C763D;
+}
+.temperature.hot{
+  color: #8A6D3B;
+}
+.temperature.ardent{
+  color: #A94442;
+}
+.blink {
+  -webkit-animation-name: blinker;
+  -webkit-animation-duration: 0.5s;
+  -webkit-animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
 
-        -moz-animation-name: blinker;
-        -moz-animation-duration: 0.5s;
-        -moz-animation-timing-function: linear;
-        -moz-animation-iteration-count: infinite;
+  -moz-animation-name: blinker;
+  -moz-animation-duration: 0.5s;
+  -moz-animation-timing-function: linear;
+  -moz-animation-iteration-count: infinite;
 
-        animation-name: blinker;
-        animation-duration: 0.5s;
-        animation-timing-function: linear;
-        animation-iteration-count: infinite;
-    }
+  animation-name: blinker;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
 
-    @-moz-keyframes blinker {
-        0% { opacity: 1.0; }
-        50% { opacity: 0.0; }
-        100% { opacity: 1.0; }
-    }
+@-moz-keyframes blinker {
+  0% { opacity: 1.0; }
+  50% { opacity: 0.0; }
+  100% { opacity: 1.0; }
+}
 
-    @-webkit-keyframes blinker {
-        0% { opacity: 1.0; }
-        50% { opacity: 0.0; }
-        100% { opacity: 1.0; }
-    }
+@-webkit-keyframes blinker {
+  0% { opacity: 1.0; }
+  50% { opacity: 0.0; }
+  100% { opacity: 1.0; }
+}
 
-    @keyframes blinker {
-        0% { opacity: 1.0; }
-        50% { opacity: 0.0; }
-        100% { opacity: 1.0; }
-    }
-
-
+@keyframes blinker {
+  0% { opacity: 1.0; }
+  50% { opacity: 0.0; }
+  100% { opacity: 1.0; }
+}
 
 
-    .poppy_picture{
-      width:759px;
-      height:1000px;
-      background:transparent url(../img/poppy.png) center center no-repeat;
-      background-size:contain;
-    }
-
-    .panel.primitive{
-      margin-bottom:5px;
-    }
-    .panel.primitive .panel-heading{
-      padding:2px 3px;
-    }
-
-    #motor_l_elbow_y{top:334px; left:605px;}
-    #motor_r_elbow_y{top:334px; left:55px;}
-    #motor_r_knee_y{top:704px; left:119px;}
-    #motor_head_y{top:19px; left:127px;}li.motor.ardent {
-        border: 1px solid #D11919;
-        border-radius: 6px;
-
-        -webkit-animation-name: glow;
-        -webkit-animation-timing-function: ease-in;
-        -webkit-animation-iteration-count: infinite;
-        -webkit-animation-direction: alternate;
-        -webkit-animation-duration: 500ms;
 
 
-        -moz-animation-name: glow;
-        -moz-animation-timing-function: ease-in;
-        -moz-animation-iteration-count: infinite;
-        -moz-animation-direction: alternate;
-       -moz-animation-duration: 500ms;
-    }
-    @-webkit-keyframes glow {
-        0% { box-shadow: 0 0 5px #600 ; }
-        100% { box-shadow: 0 0 15px #600 ; }
-    }
-    @-moz-keyframes glow {
-        0% { box-shadow: 0 0 5px #600 ; }
-        100% { box-shadow: 0 0 15px #600 ; }
-    }
-    #motor_head_z{top:31px; left:541px;}
-    #motor_r_arm_z{top:260px; left:32px;}
-    #motor_r_ankle_y{top:838px; left:123px;}
-    #motor_r_shoulder_x{top:185px; left:84px;}
-    #motor_r_shoulder_y{top:115px; left:83px;}
-    #motor_r_hip_z{top:414px; left:38px;}
-    #motor_r_hip_x{top:579px; left:86px;}
-    #motor_r_hip_y{top:486px; left:39px;}
-    #motor_l_arm_z{top:255px; left:629px;}
-    #motor_l_hip_x{top:580px; left:562px;}
-    #motor_l_hip_y{top:489px; left:621px;}
-    #motor_l_hip_z{top:412px; left:622px;}
-    #motor_abs_x{top:382px; left:428px;}
-    #motor_abs_y{top:370px; left:233px;}
-    #motor_abs_z{top:312px; left:401px;}
-    #motor_l_ankle_y{top:849px; left:525px;}
-    #motor_bust_y{top:277px; left:259px;}
-    #motor_bust_x{top:238px; left:405px;}
-    #motor_l_knee_y{top:700px; left:530px;}
-    #motor_l_shoulder_x{top:183px; left:575px;}
-    #motor_l_shoulder_y{top:110px; left:573px;}
+.poppy_picture{
+  width:759px;
+  height:1000px;
+  background:transparent url(../img/poppy.png) center center no-repeat;
+  background-size:contain;
+}
+
+.panel.primitive{
+  margin-bottom:5px;
+}
+.panel.primitive .panel-heading{
+  padding:2px 3px;
+}
+
+#motor_l_elbow_y{top:334px; left:605px;}
+#motor_r_elbow_y{top:334px; left:55px;}
+#motor_r_knee_y{top:704px; left:119px;}
+#motor_head_y{top:19px; left:127px;}li.motor.ardent {
+  border: 1px solid #D11919;
+  border-radius: 6px;
+
+  -webkit-animation-name: glow;
+  -webkit-animation-timing-function: ease-in;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-direction: alternate;
+  -webkit-animation-duration: 500ms;
+
+
+  -moz-animation-name: glow;
+  -moz-animation-timing-function: ease-in;
+  -moz-animation-iteration-count: infinite;
+  -moz-animation-direction: alternate;
+  -moz-animation-duration: 500ms;
+}
+@-webkit-keyframes glow {
+  0% { box-shadow: 0 0 5px #600 ; }
+  100% { box-shadow: 0 0 15px #600 ; }
+}
+@-moz-keyframes glow {
+  0% { box-shadow: 0 0 5px #600 ; }
+  100% { box-shadow: 0 0 15px #600 ; }
+}
+#motor_head_z{top:31px; left:541px;}
+#motor_r_arm_z{top:260px; left:32px;}
+#motor_r_ankle_y{top:838px; left:123px;}
+#motor_r_shoulder_x{top:185px; left:84px;}
+#motor_r_shoulder_y{top:115px; left:83px;}
+#motor_r_hip_z{top:414px; left:38px;}
+#motor_r_hip_x{top:579px; left:86px;}
+#motor_r_hip_y{top:486px; left:39px;}
+#motor_l_arm_z{top:255px; left:629px;}
+#motor_l_hip_x{top:580px; left:562px;}
+#motor_l_hip_y{top:489px; left:621px;}
+#motor_l_hip_z{top:412px; left:622px;}
+#motor_abs_x{top:382px; left:428px;}
+#motor_abs_y{top:370px; left:233px;}
+#motor_abs_z{top:312px; left:401px;}
+#motor_l_ankle_y{top:849px; left:525px;}
+#motor_bust_y{top:277px; left:259px;}
+#motor_bust_x{top:238px; left:405px;}
+#motor_l_knee_y{top:700px; left:530px;}
+#motor_l_shoulder_x{top:183px; left:575px;}
+#motor_l_shoulder_y{top:110px; left:573px;}
