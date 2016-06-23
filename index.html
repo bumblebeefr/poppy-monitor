@@ -12,12 +12,9 @@
 
 	<link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 	<link href="lib/bootstrap/css/bootstrap-theme.css" rel="stylesheet">
-	<link href="lib/rmodal/animate.min.css" rel="stylesheet">
-	<link href="lib/rmodal/rmodal.css" rel="stylesheet">
 	<link href="lib/font-awesome/css/font-awesome.css" rel="stylesheet">
 	<link href="lib/raphaelicons/raphaelicons.css" rel="stylesheet">
-	<link href="lib/notiFire/css/notiFire.css" rel="stylesheet">
-	<link href="css/monitor-humanoid.css" rel="stylesheet">
+	<link href="css/base.css" rel="stylesheet">
 
 	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -27,54 +24,71 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
     <style>
-
+			.robots{
+				background-color:#162B38;
+				color:#FFF;
+				text-align:center;
+				font-family: "SofiaPro","Helvetica Neue",Helvetica,Roboto,Arial,sans-serif;
+			}
+			.robots a{
+				display:block;
+				width:100%;
+				font-size:1.5em;
+				padding :15px 0px;
+				color:#FFF;
+				text-decoration:none;
+				margin-bottom:25px;
+			}
+			.robots a img {
+				margin:25px auto;
+				width:150px;
+				height:150px;
+				border-radius:75px;
+				display:block;
+			}
+			.robots a:hover img {
+				box-shadow: 0px 0px 10px rgba(255,255,255,0.5);
+			}
     </style>
 </head>
 <body>
-	<div class="container-fluid">
+	<div class="container">
 		<div class="row">
-			<div class="col-md-6">
-				<robot_title></robot_title>
-				<audio id="alarm" src="./sound/alarm.ogg" loop></audio>
-				<div>
-					<button type="button" class="btn btn-default" onclick="Poppy.setCompliant(false)">
-						<i class="fa fa-bolt"></i> Activer tous les moteurs
-					</button>
-					<button type="button" class="btn btn-default" onclick="Poppy.setCompliant(true)">
-						<i class="fa fa-bed"></i> Désactiver tous les moteurs
-					</button>
-
-					<button type="button" class="btn btn-default" onclick="Poppy.stopAllPrimitives(true)">
-						<i class="fa fa-coffee"></i> Arreter toutes les primitives
-					</button>
-				</div>
-				<br/>
-				<behavior></behavior>
+			<div class="col-md-12">
+				<h2><img src="img/poppy-monitor.png" style="height:1em;"> Poppy Monitor </h2>
+				<br/><br/>
 			</div>
-			<div class="col-md-6">
-				<robot></robot>
+			<div class="col-md-12">
+				<p class="lead">
+					A simple way to monitor you <a href="https://www.poppy-project.org/">Poppy</a>
+					<em>(or any pypot based)</em> robot and control his basic behaviors !
+				</p>
+			</div>
+		</div>
+		<div class="row robots">
+			<div class="col-md-12">
+				<h3>Select your robot !</h3>
+			</div>
+
+			<div class="col-sm-3">
+				<a href="poppy-humanoid.html">
+					<img src="img/thumb-humanoid.jpg" />
+					Poppy Humanoid
+				</a>
+			</div>
+			<div class="col-sm-3">
+				<a href="poppy-torso.html">
+					<img src="img/thumb-torso.jpg" />
+					Poppy Torso
+				</a>
+			</div>
+			<div class="col-sm-3">
+				<a href="poppy-ergo-jr.html">
+					<img src="img/thumb-ergo-jr.jpg" />
+					Poppy ErgoJr
+				</a>
 			</div>
 		</div>
 	</div>
-
-	<script src="lib/ajax.js"></script>
-	<script src="lib/rmodal/rmodal.min.js"></script>
-	<script src="lib/hjson.js"></script>
-	<script src="lib/draggabilly.pkgd.js"></script>
-	<script src="lib/lodash.js"></script>
-	<script src="lib/numeral/numeral.js"></script>
-	<script src="lib/notiFire/js/notiFire.js"></script>
-	<script src="lib/riot/riot+compiler.js"></script>
-	<script src="lib/hammer.min.js"></script>
-	<script src="js/helpers.js"></script>
-	<script src="js/poppy-object.js"></script>
-
-
-	<script src="tags/robot.tag" type="riot/tag"></script>
-	<script src="tags/motor.tag" type="riot/tag"></script>
-	<script src="tags/behavior.tag" type="riot/tag"></script>
-	<script>
-		riot.mount('*');
-	</script>
 </body>
 </html>
